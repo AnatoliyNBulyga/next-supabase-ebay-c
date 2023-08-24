@@ -2,9 +2,13 @@
 
 import { toast } from "react-toastify";
 import { useCart } from "@/context/cart";
+import {CartContextType, ProductType} from "@/types";
 
-export default function CartItem({ product }) {
-    const cart = useCart()
+interface CartItemProps {
+    product: ProductType
+}
+export default function CartItem({ product }: CartItemProps) {
+    const cart = useCart() as CartContextType
 
     const removeItemFromCart = () => {
         let res = confirm(`Are you sure you want to remove this? "${product.title}"`)

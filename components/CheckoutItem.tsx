@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from "next/navigation";
-import {ProductType} from "@/types";
+import { ProductType } from "@/types";
 
 interface CheckoutItemProps {
     product: ProductType

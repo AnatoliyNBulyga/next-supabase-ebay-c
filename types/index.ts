@@ -18,6 +18,15 @@ export type CurrentAddressType = {
     country: string
 }
 
+export type AddressDetailsType = {
+    addressId: string,
+    name: string,
+    address: string,
+    zipcode: string,
+    city: string,
+    country: string
+}
+
 export type CartContextType = {
     isItemAdded: boolean;
     getCart: () => any;

@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react"
 import ProductComp from "./Product"
 import Loading from "@/components/Loading";
+import {ProductType} from "@/types";
 
 export default function SimilarProducts () {
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<ProductType[]>([]);
 
     const getRandomProducts = async () => {
         try {

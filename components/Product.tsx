@@ -1,8 +1,12 @@
 'use client';
 
 import Link from "next/link";
+import {ProductType} from "@/types";
 
-export default function Product({ product }) {
+interface ProductProps {
+    product: ProductType
+}
+export default function Product({ product }: ProductProps) {
 
     return (
         <>

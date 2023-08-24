@@ -1,5 +1,5 @@
-const useIsLoading = (bool) => {
-    localStorage.setItem('isLoading', bool)
+const useIsLoading = (bool: boolean) => {
+    localStorage.setItem('isLoading', String(bool))
     window.dispatchEvent(new Event("storage"));
 }
 

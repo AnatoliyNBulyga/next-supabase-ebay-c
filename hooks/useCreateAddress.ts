@@ -1,4 +1,6 @@
-const useCreateAddress = async (details) => {
+import {AddressDetailsType} from "@/types";
+
+const useCreateAddress = async (details: AddressDetailsType) => {
 
     let url = 'create'
     if (details.addressId) url = 'update'

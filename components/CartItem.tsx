@@ -21,7 +21,7 @@ export default function CartItem({ product }: CartItemProps) {
     return (
         <>
             <div className="relative flex justify-start my-2 border w-full p-6">
-                <img src={product?.url+'/150'} className="rounded-md w-[150px] h-[150px]" />
+                <img src={product?.url+'/150'} className="rounded-md w-[150px] h-[150px]" alt="Product image" />
 
                 <div className="overflow-hidden pl-2 w-full">
                     <div className="flex items-center justify-between w-full">

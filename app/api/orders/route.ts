@@ -3,6 +3,8 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import prisma from "@/libs/Prisma";
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
     const supabase = createServerComponentClient({ cookies })
 

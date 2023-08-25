@@ -16,7 +16,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
         let cart = [];
 
         if (typeof localStorage !== 'undefined') {
-            cart = JSON.parse(localStorage.getItem('cart') || "") || [];
+            cart = JSON.parse(localStorage.getItem('cart') || "[]");
         }
 
         return cart;
@@ -26,7 +26,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
         let cart = [];
 
         if (typeof localStorage !== "undefined") {
-            cart = JSON.parse(localStorage.getItem("cart") || "") || [];
+            cart = JSON.parse(localStorage.getItem('cart') || "[]");
         }
 
         cart.push(product);
@@ -39,7 +39,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     const removeFromCart = (product: any) => {
         let cart = [];
         if (typeof localStorage !== "undefined") {
-            cart = JSON.parse(localStorage.getItem('cart') || "") || [];
+            cart = JSON.parse(localStorage.getItem('cart') || "[]");
         }
         cart = cart.filter((item: any) => item.id !== product.id);
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -51,7 +51,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
         let cart = [];
 
         if (typeof localStorage !== "undefined") {
-            cart = JSON.parse(localStorage.getItem("cart") || "") || [];
+            cart = JSON.parse(localStorage.getItem('cart') || "[]");
         }
 
         cart = cart.filter((item: any) => item.id === product.id);
@@ -67,7 +67,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     const cartCount = () => {
         let cart = []
         if (typeof localStorage !== "undefined") {
-            cart = JSON.parse(localStorage.getItem('cart') || "") || [];
+            cart = JSON.parse(localStorage.getItem('cart') || "[]");
         }
         return cart.length
     }
@@ -76,7 +76,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
         let cart = [];
 
         if (typeof localStorage !== "undefined") {
-            cart = JSON.parse(localStorage.getItem("cart") || "") || [];
+            cart = JSON.parse(localStorage.getItem('cart') || "[]");
         }
 
         const total = cart.reduce((acc: number, item: { price: number }) => {

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import {ProductType} from "@/types";
+import Image from "next/image";
 
 interface ProductProps {
     product: ProductType
@@ -14,7 +15,18 @@ export default function Product({ product }: ProductProps) {
                 href={`/product/${product?.id}`}
                 className='max-w-[200px] p-1.5 border border-gray-50 hover:border-gray-200 hover:shadow-xl bg-gray-100 rounded mx-auto'
             >
-                { product?.url ? <img className="rounded cursor-pointer" src={product.url+'/190'} alt="Product image"/> : null }
+                { product?.url
+                    ?
+                    <div className="aspect-square relative overflow-hidden rounded cursor-pointer w-[186px]">
+                        <Image
+                            fill
+                            src={product.url+'/186'}
+                            alt="Product preview"
+                            className="object-cover object-center"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                    </div>
+                    : null }
 
                 <div className="pt-2 px-1">
 

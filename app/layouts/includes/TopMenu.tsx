@@ -57,7 +57,7 @@ export default function TopMenu() {
                                         className="absolute bg-white w-[200px] text-[#333333] z-40 top-[20px] left-0 border shadow-lg"
                                     >
                                         <div className="flex items-center justify-start gap-1 p-3">
-                                            <div className="aspect-square relative overflow-hidden">
+                                            <div className="aspect-square relative overflow-hidden w-[50px]">
                                                 <Image
                                                     fill
                                                     src={user?.picture as string}
@@ -66,7 +66,6 @@ export default function TopMenu() {
                                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                 />
                                             </div>
-                                            {/*<img width={50} src={user?.picture as string} alt="photo"/>*/}
                                             <div className="font-bold text-[13px] ml-2">{user?.name}</div>
                                         </div>
 
@@ -103,7 +102,15 @@ export default function TopMenu() {
                     >
 
                         <li className="flex items-center gap-2 px-3 hover:underline cursor-pointer">
-                            <img width={32} src="/images/uk.png" alt="flag image"/>
+                            <div className="relative overflow-hidden w-[32px] h-[19px]">
+                                <Image
+                                    fill
+                                    src="/images/uk.png"
+                                    alt="flag image"
+                                    className="object-cover object-center"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
+                            </div>
                             Ship to
                         </li>
                         <li className="px-3 hover:underline cursor-pointer">

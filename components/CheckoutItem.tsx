@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { ProductType } from "@/types";
+import Image from "next/image";
 
 interface CheckoutItemProps {
     product: ProductType
@@ -11,8 +12,16 @@ export default function CheckoutItem ({ product }: CheckoutItemProps) {
     const pathname = usePathname();
 
     return (
-        <div className="relative flex justify-start my-2 border w-full p-4">
-            <img src={product.url + '/150'} className="rounded-md w-[150px] h-[150px]" alt="Checkout image"/>
+        <div className="relative flex my-2 border w-full p-4">
+            <div className="relative overflow-hidden rounded-md min-w-[150px] h-[150px]">
+                <Image
+                    fill
+                    src={product.url + '/150'}
+                    alt="Checkout image"
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+            </div>
 
             <div className="overflow-hidden pl-2">
                 <div className="font-semibold">

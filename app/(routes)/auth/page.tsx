@@ -4,6 +4,7 @@ import {createClientComponentClient} from "@supabase/auth-helpers-nextjs"
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import Link from 'next/link';
+import Image from "next/image";
 
 
 export default async function AuthPage() {
@@ -14,7 +15,15 @@ export default async function AuthPage() {
 
             <div className="w-full flex items-center justify-center p-5 border-b-gray-300">
                 <Link href="/" className="min-w-[170px]">
-                    <img width="170" src="/images/logo.svg" alt="Logo image"/>
+                    <div className="relative overflow-hidden w-[170px] h-[68px]">
+                        <Image
+                            fill
+                            src="/images/logo.svg"
+                            alt="Logo image"
+                            className="object-cover object-center"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                    </div>
                 </Link>
             </div>
 

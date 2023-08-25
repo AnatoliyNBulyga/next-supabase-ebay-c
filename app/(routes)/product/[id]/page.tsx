@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import {useEffect, useState} from "react";
 import useIsLoading from "@/hooks/useIsLoading";
 import {CartContextType, ProductType} from "@/types";
+import Image from "next/image";
 
 const InitProductObject = {
     id: 0,
@@ -49,7 +50,15 @@ export default function ProductPage({ params }: ProductPageProps) {
                 <div className="flex px-4 py-10">
 
                     {product?.url
-                        ? <img className="w-[40%] rounded-lg" src={product?.url+'/280'} />
+                        ? <div className="aspect-square relative overflow-hidden rounded-lg w-[40%]">
+                            <Image
+                                fill
+                                src={product?.url+'/280'}
+                                alt="Product preview"
+                                className="object-cover object-center"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            />
+                        </div>
                         : <div className="w-[40%]"></div>
                     }
 

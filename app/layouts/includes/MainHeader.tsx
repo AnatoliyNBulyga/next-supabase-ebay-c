@@ -6,6 +6,7 @@ import {AiOutlineSearch} from "react-icons/ai";
 import {BiLoaderCircle} from "react-icons/bi";
 import { debounce } from "debounce";
 import {ProductType} from "@/types";
+import Image from "next/image";
 
 export default function MainHeader() {
     const [items, setItems] = useState([]);
@@ -43,7 +44,15 @@ export default function MainHeader() {
                 <div className="flex items-center w-full bg-white">
                     <div className="flex lg:justify-start justify-between gap-10 max-w-[1150px] w-full px-3 py-5 mx-auto">
                         <Link href="/">
-                            <img width="120" src="/images/logo.svg" />
+                            <div className="relative overflow-hidden w-[120px] h-[42px]">
+                                <Image
+                                    fill
+                                    src="/images/logo.svg"
+                                    alt="Logo image"
+                                    className="object-cover object-center"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
+                            </div>
                         </Link>
 
                         <div className="w-full">
@@ -80,7 +89,15 @@ export default function MainHeader() {
                                                             className="flex items-center justify-between w-full cursor-pointer hover:bg-gray-200 p-1 px-2"
                                                         >
                                                             <div className="flex items-center">
-                                                                <img className="rounded-md" width="40" src={item?.url+'/40'} />
+                                                                <div className="aspect-square relative overflow-hidden rounded-md w-[40px]">
+                                                                    <Image
+                                                                        fill
+                                                                        src={item?.url+'/40'}
+                                                                        alt="Product preview"
+                                                                        className="object-cover object-center"
+                                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                                    />
+                                                                </div>
                                                                 <div className="truncate ml-2">{ item?.title }</div>
                                                             </div>
                                                             <div className="truncate">£{ (item?.price / 100).toFixed(2) }</div>

@@ -14,6 +14,7 @@ import {loadStripe} from "@stripe/stripe-js";
 import Link from "next/link";
 import {AiOutlineLoading3Quarters} from "react-icons/ai";
 import {CartContextType, CurrentAddressType, ProductType, UserContextType} from "@/types";
+import Image from "next/image";
 
 const InitCurrentAddressObject = {
     id: "",
@@ -249,7 +250,15 @@ export default function Checkout() {
                         </ClientOnly>
 
                         <div className="flex items-center p-4 justify-center gap-2 border-t">
-                            <img width={50} src="/images/logo.svg" />
+                            <div className="relative overflow-hidden w-[50px] h-[20px]">
+                                <Image
+                                    fill
+                                    src="/images/logo.svg"
+                                    alt="Logo image"
+                                    className="object-cover object-center"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
+                            </div>
                             <div className=" font-light mb-2 mt-2">MONEY BACK GUARANTEE</div>
                         </div>
                     </div>

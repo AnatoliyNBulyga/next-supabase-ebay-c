@@ -9,6 +9,7 @@ import {useUser} from "@/context/user";
 import useIsLoading from "@/hooks/useIsLoading";
 import MainLayout from "@/app/layouts/MainLayout";
 import {OrderItemType, OrdersType, UserContextType} from "@/types";
+import Image from "next/image";
 
 export default function TopMenu() {
 
@@ -87,7 +88,15 @@ export default function TopMenu() {
                                                 className="py-1 hover:underline text-blue-500 font-bold"
                                                 href={`/product/${item.product_id}`}
                                             >
-                                                <img className="rounded" width="120" src={item.product?.url+'/120'} />
+                                                <div className="aspect-square relative overflow-hidden w-[120px] rounded">
+                                                    <Image
+                                                        fill
+                                                        src={item.product?.url+'/120'}
+                                                        alt="Product preview"
+                                                        className="object-cover object-center"
+                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                    />
+                                                </div>
                                                 {item.product?.title}
                                             </Link>
                                         </div>

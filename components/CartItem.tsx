@@ -3,6 +3,7 @@
 import { toast } from "react-toastify";
 import { useCart } from "@/context/cart";
 import {CartContextType, ProductType} from "@/types";
+import Image from "next/image";
 
 interface CartItemProps {
     product: ProductType
@@ -21,7 +22,15 @@ export default function CartItem({ product }: CartItemProps) {
     return (
         <>
             <div className="relative flex justify-start my-2 border w-full p-6">
-                <img src={product?.url+'/150'} className="rounded-md w-[150px] h-[150px]" alt="Product image" />
+                <div className="aspect-square relative overflow-hidden rounded-md cursor-pointer min-w-[150px]">
+                    <Image
+                        fill
+                        src={product.url+'/150'}
+                        alt="Product preview"
+                        className="object-cover object-center"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                </div>
 
                 <div className="overflow-hidden pl-2 w-full">
                     <div className="flex items-center justify-between w-full">

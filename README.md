@@ -10,4 +10,4 @@
 - Supabase
 - Supabase build-in auth api
 
-**You can evaluate the work of the app here:**
+**You can evaluate the work of the app here:** https://ebay-c.vercel.app
